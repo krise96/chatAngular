@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Angular chat</title>
+        <link href="style.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    </head>    
+    <body>
+        <div id="content" ng-controller="ShowController as first">
+            <div id="loginBlock" ng-if="logShow">
+                <input type="text" id="nameInput" placeholder="Your name" ng-model="Factory.author">
+                <input type="button" value="ok" ng-click="onClickLog(Factory.author)">
+            </div>
+            <div id="chat" ng-show="chatShow" ng-controller="ChatController">
+                <input type="text" id="nameInput" placeholder="Your name" ng-model="Factory.author" disabled>
+                <div id="mesArea">
+                    <ul id='messages'>
+                        
+                        
+                        
+                        
+                        <li ng-repeat="message in data" ng-model="mesText" ng-click="delMes(message.author, message.text)">
+                            {{message.author}}: {{message.text}}
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="futter" ng-if="chatShow">
+                    <input type="text" id="textInput" placeholder="Message" ng-model="text">
+                    <input type="button" id="sendButton" value="ok" ng-click="sendData(Factory.author, text)">
+                </div>
+                
+            </div>
+            
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="Factory.js"></script>
+        <script type="text/javascript" src="ShowController.js"></script>
+        <script type="text/javascript" src="ChatController.js"></script>
+        
+        <script type="text/javascript"">
+		    angular.bootstrap(document, ['app']);
+	    </script>
+    </body>
+</html>
