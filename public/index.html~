@@ -5,7 +5,7 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     </head>    
     <body>
-        <div id="content" ng-controller="ShowController as first">
+        <div id="content" ng-controller="ShowController">
             <div id="loginBlock" ng-if="logShow">
                 <input type="text" id="nameInput" placeholder="Your name" ng-model="Factory.author">
                 <input type="button" value="ok" ng-click="onClickLog(Factory.author)">
@@ -33,7 +33,6 @@
             
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript" src="Factory.js"></script>
         <script type="text/javascript" src="ShowController.js"></script>
@@ -44,4 +43,3 @@
 	    </script>
     </body>
 </html>
-

@@ -17,7 +17,7 @@
                 text: text
             }
             http = new XMLHttpRequest();
-			http.open('DELETE', 'http://localhost:1337/messages', true);
+			http.open('DELETE', '/messages', true);
             http.setRequestHeader('Content-Type', 'application/json');
 			http.send(JSON.stringify(data));
            	http.onreadystatechange = function() {
@@ -30,7 +30,7 @@
         
         
         function getData() {
-                $http.get('http://localhost:1337/messages').success(function(data){
+                $http.get('/messages').success(function(data){
                 $scope.data = data;
             }).error(function(){
                 console.log("Ohhh...");
@@ -42,7 +42,7 @@
         function sendData(author, text) {
 			$scope.text = text;
 			console.log(author + ": " + text);
-            $http.post("http://localhost:1337/messages", {'author': author, 'text': text}).success(function() {
+            $http.post("/messages", {'author': author, 'text': text}).success(function() {
                 console.log('ok');
                 getData();
             })
